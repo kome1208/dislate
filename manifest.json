@@ -11,8 +11,8 @@
       }
    ],
    "plugin": {
-      "download": "https://raw.githubusercontent.com/kome1/dislate-deepl/main/dist/Dislate-DeepL.js",
-      "repo": "https://github.com/kome1/dislate-deepl",
+      "download": "https://raw.githubusercontent.com/kome1208/dislate-deepl/main/dist/Dislate-DeepL.js",
+      "repo": "https://github.com/kome1208/dislate-deepl",
       "build": "deepl-2.0.0",
       "hash": "2ca11015"
    },
