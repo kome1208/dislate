@@ -15,8 +15,6 @@ import { get, set } from 'enmity/api/settings';
 import { FormRow, TouchableOpacity } from 'enmity/components';
 import { Constants, React, Toasts, StyleSheet } from 'enmity/metro/common';
 import { name } from '../../../../manifest.json';
-import ISO from '../../../translate/languages/iso';
-import ISO2 from '../../../translate/languages/iso2'
 import { Format, Icons } from '../../../common';
 
  
@@ -34,7 +32,6 @@ export default ({ language, languages, Navigation }) => {
     /**
      * Puts the list of languages into an object where the key is the ISO2 Entry and the Value is the ISO1 Entry.
      */
-    const MappedISO2 = Object.assign({}, ...ISO.map((k, i) => ({ [k]: ISO2[i] })));
 
     /** 
      * Use React to create a new Ref with @arg Animated
@@ -108,7 +105,7 @@ export default ({ language, languages, Navigation }) => {
          * @param {string[]} LanguageNames: The full list of languages.
          * @param {string} language: The language that this component is representing. This is the language that a user would press on.
          */
-        Toasts.open({ content: `Set ${(languages[language]).toUpperCase()} as Language to Translate ${get("Dislate", "DislateLangFilter") ? "to" : "from"}.`, 
+        Toasts.open({ content: `Set ${(languages[language]).toUpperCase()} as Language to Translate ${get("Dislate-DeepL", "DislateLangFilter") ? "to" : "from"}.`, 
             source: get(name, "DislateLangFilter") ? Icons.Settings.TranslateTo : Icons.Settings.TranslateFrom
         });
 
@@ -149,7 +146,7 @@ export default ({ language, languages, Navigation }) => {
                      * Fetches the shorter names of each language. As the ISO's are all directly linked to the names, this will never return undefined.
                      * @uses @param {string} languageNames[language]: Shorter implementation of the language
                      */
-                    subLabel={`Aliases: ${languages[language]}, ${MappedISO2[languages[language]]}`}
+                    subLabel={`Aliases: ${languages[language]}`}
                     trailing={FormRow.Arrow}
                     leading={<FormRow.Icon style={{color: Constants.ThemeColorMap.INTERACTIVE_NORMAL}} source={
                         /**

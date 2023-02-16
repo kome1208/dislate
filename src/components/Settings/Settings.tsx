@@ -17,7 +17,7 @@
  * @param Page: Default Page which will render more TSX inside of it.
  */
 import { get, getBoolean, set } from 'enmity/api/settings';
-import { FormDivider, FormRow, FormSwitch, ScrollView, Text, View } from 'enmity/components';
+import { FormDivider, FormInput, FormRow, FormSwitch, ScrollView, Text, View } from 'enmity/components';
 import { bulk, filters } from 'enmity/metro';
 import { React, Constants, Storage, StyleSheet, Toasts } from 'enmity/metro/common';
 import { Miscellaneous, Format, ArrayImplementations as ArrayOps, Icons, Updater } from '../../common';
@@ -136,6 +136,17 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                      * The main component to allow the user to open a page and choose what language they would like to translate from.
                      * @uses @param {number} Icons.Settings.TranslateFrom: The main icon for the translate "from" component.
                      */}
+                    <FormRow
+                        label='API Key'
+                        leading={<FormRow.Icon style={styles.icon} source={Icons.Settings.APIKey} />}
+                        trailing={<FormInput 
+                            value={settings.get('deeplApiKey')}
+                            onChange={(value) => settings.set('deeplApiKey', value || undefined)}
+                            title="API Key"
+                            placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:fx"
+                            />
+                        }
+                    />
                     <FormRow
                         label='Translate From'
                         leading={<FormRow.Icon style={styles.icon} source={Icons.Settings.TranslateFrom} />}
@@ -408,7 +419,7 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                              * Fetch any existing stored state inside of the @arg dislateStoreState array.
                              * @param {object} storeItems: List of existing items in array form containing objects with name and type.
                              */
-                            const storeItems: any = JSON.parse(get("Dislate", "state_store", null) as string) ?? []
+                            const storeItems: any = JSON.parse(get("Dislate-DeepL", "state_store", null) as string) ?? []
 
                             /**
                              * Loop through the stored items with a custom implementation of a forEach to allow for labels.
@@ -428,7 +439,7 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                             /**
                              * Remove the store to ensure it doesnt get cleared twice.
                              */
-                            set("Dislate", "state_store", null);
+                            set("Dislate-DeepL", "state_store", null);
 
                             /**
                              * Finally, open an @arg Toast to notify the user that all of the stores have been cleared.

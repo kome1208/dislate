@@ -55,7 +55,7 @@ const [
  * @param {any} Patcher: The main patcher which is used for Instead, Before, and After patches of Modules
  * @param {any} LanguageNames: The main list of language names paired with their ISO 2-digit-character code.
  */
-const Patcher = create('dislate');
+const Patcher = create('dislate-deepl');
 const LanguageNames = Object.assign({}, ...LanguageNamesArray.map((k, i) => ({ [k]: ISO[i] })));
 
 /** 

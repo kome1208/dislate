@@ -30,6 +30,7 @@ export default {
             Settings: getIDByName('ic_selection_checked_24px'),
             Failed: getIDByName('ic_close_circle_24px')
         },
+        APIKey: getIDByName('ic_authed_apps_24px'),
         TranslateFrom: getIDByName('ic_raised_hand_list'),
         TranslateTo: getIDByName('ic_activity_24px'),
         Debug: getIDByName('ic_rulebook_16px'),

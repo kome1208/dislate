@@ -65,8 +65,8 @@ export default {
    * @param {string} description: The description of the command
    * @param {string?} displayDescription?: The display description of the command
    */
-  description: `Send a message using ${name} in any language chosen, using the Google Translate API.`,
-  displayDescription: `Send a message using ${name} in any language chosen, using the Google Translate API.`,
+  description: `Send a message using ${name} in any language chosen, using the DeepL Translate API.`,
+  displayDescription: `Send a message using ${name} in any language chosen, using the DeepL Translate API.`,
 
   /**
    * @param {ApplicationCommandType} type: The type of command, in this case it's an @arg Chat command.

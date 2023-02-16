@@ -1,12 +1,13 @@
 import { LanguageType } from './types';
+import { get } from 'enmity/api/settings';
+import { name } from '../../manifest.json';
 
-const base = "https://translate.googleapis.com/translate_a/single";
+const base = "https://api-free.deepl.com/v2/translate";
 const engine = {
-    fetch: ({ from, to, text }) => `${base}?client=gtx&sl=${from}&tl=${to}&dt=t&q=${encodeURI(text)}`,
+    fetch: ({ from, to, text }) => `${base}?target_lang=${to}${from == 'null' ? '' : `&source_lang=${from}`}&text=${encodeURI(text)}`,
     parse: res => res.json().then(body => {
-        body = body && body[0] && body[0][0] && body[0].map(s => s[0]).join("");
-        if (!body) throw new Error("Invalid Translation!");
-        return body;
+        if (!body.translations[0].text) throw new Error('Invalid Translation!');
+        return body.translations[0].text
     })
 };
 
@@ -24,5 +25,10 @@ export default async function translate(text: string, { fromLang, toLang }: Lang
         from: fromLang, 
         to: toLang, 
     });
-    return await fetch(url).then(engine.parse)
+    return await fetch(url, {
+        method:'POST',
+        headers: {
+            "Authorization": `DeepL-Auth-Key ${get(name, "deeplApiKey")}`
+        }
+    }).then(engine.parse);
 };

@@ -14,7 +14,7 @@ import { LanguageType } from "../translate/types";
  * @param {boolean} cancel: Toggles translation. If false will return untranslated text.
  * @returns {string text}
  */
-async function string(text: string, { fromLang = 'detect', toLang = 'english' }: LanguageType, languages, cancel?: boolean): Promise<string> {
+async function string(text: string, { fromLang = 'Detect', toLang = 'English' }: LanguageType, languages, cancel?: boolean): Promise<string> {
     /**
      * Returns the original string early if @arg cancel is @arg true.
      */
