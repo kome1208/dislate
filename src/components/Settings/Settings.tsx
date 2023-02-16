@@ -17,7 +17,7 @@
  * @param Page: Default Page which will render more TSX inside of it.
  */
 import { get, getBoolean, set } from 'enmity/api/settings';
-import { FormDivider, FormInput, FormRow, FormSwitch, ScrollView, Text, View } from 'enmity/components';
+import { FormDivider, FormInput, FormRow, FormSection, FormSwitch, ScrollView, Text, View } from 'enmity/components';
 import { bulk, filters } from 'enmity/metro';
 import { React, Constants, Storage, StyleSheet, Toasts } from 'enmity/metro/common';
 import { Miscellaneous, Format, ArrayImplementations as ArrayOps, Icons, Updater } from '../../common';
@@ -127,7 +127,7 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                     * @arg {whether to send only translated text or both originala and translated text}
                 * This @uses an @arg SectionWrapper which works similar to an @arg FormSection but allows you to render any styling.
             */}
-            <SectionWrapper label='Language' component={<>
+            <SectionWrapper label='Translate' component={<>
                 {/**
                  * The main section of available options to be selected by the User.
                  */}
@@ -136,16 +136,11 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                      * The main component to allow the user to open a page and choose what language they would like to translate from.
                      * @uses @param {number} Icons.Settings.TranslateFrom: The main icon for the translate "from" component.
                      */}
-                    <FormRow
-                        label='API Key'
-                        leading={<FormRow.Icon style={styles.icon} source={Icons.Settings.APIKey} />}
-                        trailing={<FormInput 
-                            value={settings.get('deeplApiKey')}
-                            onChange={(value) => settings.set('deeplApiKey', value || undefined)}
-                            title="API Key"
-                            placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:fx"
-                            />
-                        }
+                    <FormInput 
+                        value={settings.get('deeplApiKey')}
+                        onChange={(value) => settings.set('deeplApiKey', value || undefined)}
+                        title="API Key"
+                        placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:fx"
                     />
                     <FormRow
                         label='Translate From'
