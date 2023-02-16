@@ -30,5 +30,5 @@ export default async function translate(text: string, { fromLang, toLang }: Lang
         headers: {
             "Authorization": `DeepL-Auth-Key ${get(name, "deeplApiKey")}`
         }
-    }).then(engine.parse);
+    }).then(engine.parse)
 };

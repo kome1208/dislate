@@ -333,6 +333,12 @@ const Dislate: Plugin = {
                            : Icons.Revert}
                      />}
                      onPress={() => {
+                        const apiKeyRegExp = /[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}?:fx/
+                        const apiKey = get("Dislate-DeepL", "deeplApiKey")?.toString();
+                        if (!apiKey || !apiKeyRegExp.test(apiKey)) return Toasts.open({
+                            content:'Invalid API Key',
+                            source:Icons.Failed
+                        });
                         /**
                          * @param {string} translateType: The current translate type based on the cache from earlier.
                          * @param {(constant)boolean} fromLanguage: The language to translate to.
@@ -426,7 +432,7 @@ const Dislate: Plugin = {
                            isTranslated
                               ? cachedData.unshift({ [messageId]: messageContent })
                               : cachedData = ArrayImplementations.filterItem(cachedData, (e: any) => e !== existingCachedObject, 'cached data override');
-                        });
+                        }).catch(console.error);
 
                         /**
                          * Hides the ActionSheet
