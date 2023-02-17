@@ -4,7 +4,7 @@ import { name } from '../../manifest.json';
 
 const base = "https://api-free.deepl.com/v2/translate";
 const engine = {
-    fetch: ({ from, to, text }) => `${base}?target_lang=${to}${from == 'null' ? '' : `&source_lang=${from}`}&text=${encodeURI(text)}`,
+    fetch: ({ from, to, text }) => `${base}?target_lang=${to}${from == 'null' ? '' : `&source_lang=${from}`}&text=${encodeURIComponent(text)}`,
     parse: res => res.json().then(body => {
         if (!body.translations[0].text) throw new Error('Invalid Translation!');
         return body.translations[0].text

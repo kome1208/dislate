@@ -1,6 +1,6 @@
 {
    "name": "Dislate-DeepL",
-   "version": "1.3.9",
+   "version": "1.3.10",
    "description": "Translates text into a desired language.",
    "release": "stable",
    "authors": [
@@ -13,8 +13,8 @@
    "plugin": {
       "download": "https://raw.githubusercontent.com/kome1208/dislate-deepl/main/dist/Dislate-DeepL.js",
       "repo": "https://github.com/kome1208/dislate-deepl",
-      "build": "deepl-2.0.2",
-      "hash": "4b94b0f1"
+      "build": "deepl-2.0.3",
+      "hash": "21beb410"
    },
    "color": "#ff91ff"
 }
