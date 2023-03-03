@@ -1,20 +1,21 @@
 {
    "name": "Dislate-DeepL",
-   "version": "1.4.0",
+   "version": "1.4.1",
    "description": "Translates text into a desired language.",
    "release": "stable",
    "authors": [
       {
          "name": "kome1",
          "id": "783305816702844990",
-         "profile": "https://github.com/kome1/"
+         "profile": "https://github.com/kome1208/"
       }
    ],
    "plugin": {
       "download": "https://raw.githubusercontent.com/kome1208/dislate-deepl/main/dist/Dislate-DeepL.js",
       "repo": "https://github.com/kome1208/dislate-deepl",
+      "originalRepo": "https://github.com/acquitelol/dislate",
       "build": "deepl-2.1.0",
-      "hash": "21beb410"
+      "hash": "a34c9331"
    },
    "color": "#ff91ff"
 }

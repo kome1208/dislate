@@ -170,7 +170,7 @@ const UserStore = getByProps("getCurrentUser")
  */
 const localizedImage = UserStore.getCurrentUser()
     ? UserStore.getCurrentUser().getAvatarURL().replace("webp", "png")
-    : "https://cdn.discordapp.com/avatars/783305816702844990/b8345a3a7b66c4aa3ad0858f9d1df2bb.png?size=1280"
+    : "https://cdn.discordapp.com/avatars/783305816702844990/8e427c0f0b7ecf6f8b76ba53ebdff140.png?size=1280"
 
 export default 
 {

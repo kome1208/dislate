@@ -149,7 +149,7 @@ export default {
     const translatedContent = await Translate.string(
       message,
       {
-        fromLang: get(name, "DislateLangFrom", "detect") as string,
+        fromLang: get(name, "DislateLangFrom", "Detect") as string,
         toLang: language,
       },
       languageMap
@@ -165,8 +165,8 @@ export default {
     const translatedBack = await Translate.string(
       translatedContent, 
       {
-        fromLang: get(name, "DislateLangFrom", "detect") as string,
-        toLang: get(name, "DislateLangTo", 'english') as string,
+        fromLang: get(name, "DislateLangFrom", "Detect") as string,
+        toLang: get(name, "DislateLangTo", 'English') as string,
       },
       languageMap
     );
@@ -206,7 +206,7 @@ export default {
          * Are you sure you want to send this?
          * }
          */
-        body: `The message **about to be sent** is:\n\`${translatedContent}\`\n\nIn **${Format.string(get(name, "DislateLangTo", 'english') as string)}**, this will translate to:\n\`${translatedBack}\`\n\n${get(name, "DislateBothLangToggle", false) ? `**Note: Sending original and translated**\n` : ''}Are you sure you want to send this? :3`,
+        body: `The message **about to be sent** is:\n\`${translatedContent}\`\n\nIn **${Format.string(get(name, "DislateLangTo", 'English') as string)}**, this will translate to:\n\`${translatedBack}\`\n\n${get(name, "DislateBothLangToggle", false) ? `**Note: Sending original and translated**\n` : ''}Are you sure you want to send this? :3`,
         confirmText: "Yep, send it!",
         cancelText: "Nope, don't send it",
         onConfirm: () => {

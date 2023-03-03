@@ -150,7 +150,7 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                                 {/**
                                  * Renders the language that the user current selected. If the setting call returns undefined, use N/A
                                  */}
-                                {Format.string(get(name, "DislateLangFrom", "detect") as string) ?? "N/A"}
+                                {Format.string(get(name, "DislateLangFrom", "Detect") as string) ?? "N/A"}
                             </Text>
                             <FormRow.Arrow />
                         </View>}
@@ -188,7 +188,7 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                                 {/**
                                  * Renders the language that the user current selected. If the setting call returns undefined, use N/A
                                  */}
-                                {Format.string(get(name, "DislateLangTo", "english") as string)}
+                                {Format.string(get(name, "DislateLangTo", "English") as string)}
                             </Text>
                             <FormRow.Arrow />
                         </View>}
@@ -493,6 +493,20 @@ export default ({ settings, manifest: { name, version, plugin, authors, release 
                              * @uses @param {string} plugin.repo: The blob link of the plugin.
                              */
                             Router.openURL(plugin.repo)
+                        }}
+                    />
+                    <FormRow
+                        label="Original Source"
+                        subLabel={`Open the repository of original Dislate externally.`}
+                        onLongPress={() => Miscellaneous.displayToast(`Opens the repository of Dislate on GitHub in an external page to view any source code of the plugin.`, 'tooltip')}
+                        leading={<FormRow.Icon style={styles.icon} source={Icons.Open} />}
+                        trailing={() => <FormRow.Arrow />}
+                        onPress={() => {
+                            /**
+                             * Simply opens the plugin repository externally to the user using the Router.
+                             * @uses @param {string} plugin.originalRepo: The blob link of the plugin.
+                             */
+                            Router.openURL(plugin.originalRepo)
                         }}
                     />
                 </View>

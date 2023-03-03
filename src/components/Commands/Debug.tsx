@@ -102,7 +102,7 @@ const options = (channelName: string): any => {
             const translatedContent = await Translate.string(
                 englishContent,
                 { 
-                    fromLang: "detect", 
+                    fromLang: "Detect", 
                     toLang: randomLanguageName,  
                 },
                 Object.assign({}, ...LanguageNames.map((k, i) => ({ [k]: ISO[i] })))
