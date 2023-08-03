@@ -1,6 +1,6 @@
 {
    "name": "Dislate-DeepL",
-   "version": "1.4.2",
+   "version": "1.4.3",
    "description": "Translates text into a desired language.",
    "release": "stable",
    "authors": [
@@ -15,7 +15,7 @@
       "repo": "https://github.com/kome1208/dislate-deepl",
       "originalRepo": "https://github.com/acquitelol/dislate",
       "build": "patch-2.2.8",
-      "hash": "8dd4a333"
+      "hash": "c7ce0426"
    },
    "color": "#ff91ff"
 }
